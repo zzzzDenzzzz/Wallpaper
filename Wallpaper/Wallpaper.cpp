@@ -2,7 +2,7 @@
 #include "Apartment.h"
 #include "Room.h"
 #include "WallpaperRoll.h"
-//#include <iostream>
+
 using namespace std;
 
 int main()
