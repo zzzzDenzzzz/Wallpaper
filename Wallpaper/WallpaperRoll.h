@@ -1,4 +1,5 @@
 #pragma once
+
 #include <string>
 #include <iostream>
 
@@ -6,15 +7,12 @@ using namespace std;
 
 class Wallpaper
 {
-    
-    double LengthRoll;
-    double WidthRoll;
-    double Price;
-
+private:
+    double length_roll;
+    double width_roll;
+    double price;
 public:
-    string PaperName;
+    string paper_name;
     double setRollSquare();
     double setRollPrice();
-        
 };
-

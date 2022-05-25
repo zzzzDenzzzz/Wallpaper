@@ -1,23 +1,19 @@
 #pragma once
-//#include <iostream>
-//#include <string>
+
 #include "WallpaperRoll.h"
+
 using namespace std;
 
 class Room
 {
-	
-	double Hight;
-	double Length;
-	double Width;
-	bool Ñeiling;
-	
-	
-
+private:
+	double height;
+	double length;
+	double width;
+	bool ceiling;
 public:
-	int RollsNumber;
-	Wallpaper Roll;
-	string RoomName;
+	int rolls_number;
+	Wallpaper roll;
+	string room_name;
 	double setTheRoomPrice();
 };
-

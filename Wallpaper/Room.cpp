@@ -1,33 +1,36 @@
 #include "Room.h"
 
-
-
 double Room::setTheRoomPrice()
 {
-    double RoomSquare, WallpaperSquare, WallpaperPrice, RoomPrice;
     cout << " The room name ";
     cin.ignore();
-    getline(cin, RoomName);
+    getline(cin, room_name);
     cout << " The room hight ";
-    cin >> Hight;
+    cin >> height;
     cout << " The room width ";
-    cin >> Width;
+    cin >> width;
     cout << " The room length ";
-    cin >> Length;
+    cin >> length;
     cout << " With ceiling - 1 or not - 0? ";
-    cin >> Ñeiling;
-    WallpaperSquare = Roll.setRollSquare();
-    WallpaperPrice = Roll.setRollPrice();
+    cin >> ceiling;
 
-    if (Ñeiling)
+    double wallpaper_square;
+    wallpaper_square = roll.setRollSquare();
+
+    double wallpaper_price;
+    wallpaper_price = roll.setRollPrice();
+
+    double room_price;
+    if (ceiling)
     {
-        RollsNumber = (2 * ((Width + Length) * Hight) + (Width * Length)) / WallpaperSquare;
-        RoomPrice = RollsNumber * WallpaperPrice;
+        rolls_number = (2 * ((width + length) * height) + (width * length)) / wallpaper_square;
+        room_price = rolls_number * wallpaper_price;
     }
     else
     {
-        RollsNumber = (2 * ((Width + Length) * Hight)) / WallpaperSquare;
-        RoomPrice = RollsNumber * WallpaperPrice;
+        rolls_number = (2 * ((width + length) * height)) / wallpaper_square;
+        room_price = rolls_number * wallpaper_price;
     }
-    return RoomPrice;
+
+    return room_price;
 }

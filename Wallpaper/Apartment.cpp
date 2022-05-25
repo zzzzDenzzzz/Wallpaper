@@ -1,56 +1,52 @@
 #include "Apartment.h"
 
+Apartment::~Apartment()
+{
+    delete[]rooms_list;
+}
 
 double Apartment::getPriceAll()
 {
-    int NumberRooms, NumberWallpaper = 0, count, count_i = 0;
-    double PriceRolls = 0, NumberRolls = 0;
-    Room change;
-    string AnyRollName;
-
     cout << " How many rooms are in your apartment there? ";
-    cin >> NumberRooms;
+    int number_rooms;
+    cin >> number_rooms;
 
-    Roomslist = new Room[NumberRooms];
+    rooms_list = new Room[number_rooms];
 
-    for (int i = 0; i < NumberRooms; i++)
+    double price_rolls = 0;
+    for (int i = 0; i < number_rooms; i++)
     {
-        PriceRolls += Roomslist[i].setTheRoomPrice();
+        price_rolls += rooms_list[i].setTheRoomPrice();
     }
    
     //сортировка по назвванию обоев, чтобы можно было потом посчитать
-    count_i = 0;
-    for (int i = count_i; i < NumberRooms - 1; i++)
+    int count_i = 0;
+    for (int i = count_i; i < number_rooms - 1; i++)
     {
-        for (int j = i + 1; j < NumberRooms; j++)
-            if (Roomslist[i].Roll.PaperName == Roomslist[j].Roll.PaperName)
+        for (int j = i + 1; j < number_rooms; j++)
+            if (rooms_list[i].roll.paper_name == rooms_list[j].roll.paper_name)
                 
             {
-                swap(Roomslist[i + 1], Roomslist[j]);
+                swap(rooms_list[i + 1], rooms_list[j]);
                 count_i = i + 1;
             }
     }
 
-    /*for (int i = 0; i < NumberRooms; i++)
-    {
-        cout << " RoomName >>" << Roomslist[i].RoomName << " RollName >> " << Roomslist[i].Roll.PaperName << " RollNumber >> " << Roomslist[i].RollsNumber << endl;
-    }*/
-
+    int number_wallpaper = 0;
     //считаем, сколько рулонов каждого наименования обоев потребуется
-    for (int i = 0; i < NumberRooms; i++)
+    for (int i = 0; i < number_rooms; i++)
     {
-        if (Roomslist[i].Roll.PaperName == Roomslist[i + 1].Roll.PaperName)
+        if (rooms_list[i].roll.paper_name == rooms_list[i + 1].roll.paper_name)
         {
-            NumberWallpaper += Roomslist[i].RollsNumber;
+            number_wallpaper += rooms_list[i].rolls_number;
         }
         else
         {
-            NumberWallpaper += Roomslist[i].RollsNumber;
-            cout << " Wallpaper " << Roomslist[i].Roll.PaperName << " " << NumberWallpaper << endl;
-            NumberWallpaper = 0;
+            number_wallpaper += rooms_list[i].rolls_number;
+            cout << " Wallpaper " << rooms_list[i].roll.paper_name << " " << number_wallpaper << endl;
+            number_wallpaper = 0;
         }
     }
 
-    //delete[] Roomslist;
-    return PriceRolls;
+    return price_rolls;
 }

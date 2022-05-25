@@ -1,29 +1,25 @@
 #include "WallpaperRoll.h"
 
-
-
 double Wallpaper::setRollSquare()
 {
-    double RollSquare;
     cout << " The wallpaper name ";
     cin.ignore();
-    getline(cin, PaperName);
+    getline(cin, paper_name);
     cout << " The roll length ";
-    cin >> LengthRoll;
+    cin >> length_roll;
     cout << " The roll width ";
-    cin >> WidthRoll;
+    cin >> width_roll;
 
-    RollSquare = LengthRoll * WidthRoll;
+    double roll_square;
+    roll_square = length_roll * width_roll;
 
-    return RollSquare;
+    return roll_square;
 }
 
 double Wallpaper::setRollPrice()
 {
-    double price;
     cout << " How much does one roll cost ";
+    double price;
     cin >> price;
     return price;
 }
-
-    
